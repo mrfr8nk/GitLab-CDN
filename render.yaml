@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: subzero-cdn
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: GITLAB_TOKEN
+        sync: false          # set manually in Render dashboard
+      - key: GITLAB_PROJECT_ID
+        sync: false          # set manually in Render dashboard
+      - key: GITLAB_BRANCH
+        value: main
+      - key: CDN_FOLDER
+        value: cdn-files
+      - key: PORT
+        value: "3000"
